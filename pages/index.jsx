@@ -10,7 +10,6 @@ export default function Home() {
       minH="100vh"
       justify="center"
       align="center"
-      color={colors.main}
       textAlign="center"
     >
       <Flex
