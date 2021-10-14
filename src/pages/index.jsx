@@ -3,6 +3,7 @@ import { Divider, Flex, Text, VStack } from '@chakra-ui/react'
 import Lottie from 'lottie-react'
 import lottieJson from '../6519-cooking.json'
 import { colors } from '../globals'
+
 export default function Home() {
   return (
     <VStack
