@@ -5,7 +5,8 @@ import {
     HStack,
     Box,
     Divider,
-    Text
+    Text,
+    chakra
 } from '@chakra-ui/react'
 import {
     motion
@@ -18,3 +19,4 @@ export const MotionStack = motion(Stack)
 export const MotionVStack = motion(VStack)
 export const MotionHStack = motion(HStack)
 export const MotionDivider = motion(Divider)
+export const MotionSpan = motion(chakra.span)
