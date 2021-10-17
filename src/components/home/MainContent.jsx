@@ -1,13 +1,14 @@
 import { Stack, Flex, Text } from '@chakra-ui/react'
 import { MotionFlex, MotionStack, MotionText } from '../motion/components'
 import { colors } from '../../globals'
+import LogoGiratorio from './LogoGiratorio'
 import Image from 'next/image'
 const MainContent = () => {
   return (
     <Stack
       position="relative"
       overflow="hidden"
-      h="40vh"
+      h="45vh"
       w="full"
       justify="space-between"
     >
@@ -50,7 +51,7 @@ const Copy = () => {
         initial="hidden"
         animate="show"
         p="5"
-        fontSize="20px"
+        fontSize="22px"
         lineHeight="1"
         fontWeight="bold"
         bg="yellow.200"
