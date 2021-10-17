@@ -72,7 +72,7 @@ const AnimateLetter = ({ letter }) => {
         <Box px="3" />
       ) : (
         <Text
-          fontFamily="Barqish"
+          fontFamily="Barqish, mono"
           fontFa
           fontSize={{ base: '5xl', lg: '90px' }}
           fontWeight="bold"
