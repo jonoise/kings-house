@@ -1,5 +1,11 @@
+import Hero from './Hero'
+
 const HomeLayout = () => {
-  return <div></div>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }
 
 export default HomeLayout
