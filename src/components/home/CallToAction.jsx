@@ -1,6 +1,6 @@
-import { Flex, Box, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 import { colors } from '../../globals'
-import { MotionBox, MotionFlex } from '../motion/components'
+import { MotionFlex } from '../motion/components'
 import LogoGiratorio from './LogoGiratorio'
 
 const actionsOptions = [

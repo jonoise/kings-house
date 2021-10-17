@@ -1,7 +1,5 @@
-import { Stack, Flex, Text } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import { MotionFlex, MotionStack, MotionText } from '../motion/components'
-import { colors } from '../../globals'
-import LogoGiratorio from './LogoGiratorio'
 import Image from 'next/image'
 const MainContent = () => {
   return (

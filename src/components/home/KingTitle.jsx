@@ -1,12 +1,7 @@
-import { Text, Stack, Box, Heading } from '@chakra-ui/react'
+import { Stack, Box, Heading } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { colors } from '../../globals'
-import {
-  MotionBox,
-  MotionFlex,
-  MotionStack,
-  MotionText,
-} from '../motion/components'
+import { MotionBox, MotionFlex, MotionText } from '../motion/components'
 
 const titleVariant = {
   show: {

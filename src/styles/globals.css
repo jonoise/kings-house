@@ -21,3 +21,38 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.logoGiratorio {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+@media screen and (max-height: 824px) {
+  .logoGiratorio {
+    bottom: 240px;
+    left: 50px;
+  }
+}
+
+
+@media screen and (max-height: 732px) {
+  .logoGiratorio {
+    bottom: 200px;
+    left: 30px;
+  }
+}
+
+@media screen and (max-height: 640px) {
+  .logoGiratorio {
+    bottom: 170px;
+    left: 30px;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .logoGiratorio {
+    bottom: 120px;
+    left: 30px;
+  }
+}
