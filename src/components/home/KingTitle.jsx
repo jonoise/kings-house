@@ -1,6 +1,12 @@
-import { Text, Flex } from '@chakra-ui/react'
+import { Text, Stack, Box, Divider } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { MotionFlex } from '../motion/components'
+import { colors } from '../../globals'
+import {
+  MotionBox,
+  MotionFlex,
+  MotionStack,
+  MotionText,
+} from '../motion/components'
 
 const titleVariant = {
   show: {
@@ -25,7 +31,7 @@ const item = {
 
 const KingTitle = ({ title }) => {
   return (
-    <Flex
+    <Stack
       w="full"
       h="full"
       justify="space-between"
@@ -33,21 +39,47 @@ const KingTitle = ({ title }) => {
       px="5"
       py="5"
     >
+      <Stack w="full">
+        <MotionText
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          fontWeight="bold"
+        >
+          Subs & Deli
+        </MotionText>
+        <MotionBox
+          initial={{ width: 0 }}
+          animate={{ width: '25%' }}
+          transition={{ duration: 1.5 }}
+          id="divider"
+          h="4px"
+          bg={colors.main}
+        />
+      </Stack>
       <MotionFlex variants={titleVariant} initial="hidden" animate="show">
         {[...title].map((letter, index) => {
           return <AnimateLetter letter={letter} key={index} />
         })}
       </MotionFlex>
-    </Flex>
+    </Stack>
   )
 }
 
 const AnimateLetter = ({ letter }) => {
   return (
     <motion.span variants={item}>
-      <Text fontSize={{ base: '5xl', lg: '90px' }} fontWeight="bold">
-        {letter}
-      </Text>
+      {letter === ' ' ? (
+        <Box px="3" />
+      ) : (
+        <Text
+          fontFamily="Barqish"
+          fontFa
+          fontSize={{ base: '5xl', lg: '90px' }}
+          fontWeight="bold"
+        >
+          {letter}
+        </Text>
+      )}
     </motion.span>
   )
 }
