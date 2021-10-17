@@ -1,4 +1,4 @@
-import { Text, Stack, Box, Divider } from '@chakra-ui/react'
+import { Text, Stack, Box, Heading } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { colors } from '../../globals'
 import {
@@ -71,13 +71,9 @@ const AnimateLetter = ({ letter }) => {
       {letter === ' ' ? (
         <Box px="3" />
       ) : (
-        <Text
-          fontFamily="Barqish, Segoe UI, Roboto, Oxygen, Ubuntu"
-          fontSize={{ base: '5xl', lg: '90px' }}
-          fontWeight="bold"
-        >
+        <Heading fontSize={{ base: '5xl', lg: '90px' }} fontWeight="bold">
           {letter}
-        </Text>
+        </Heading>
       )}
     </motion.span>
   )
