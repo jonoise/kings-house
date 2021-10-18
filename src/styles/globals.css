@@ -36,6 +36,12 @@ a {
   right: -300;
 }
 
+.mainContent_text {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: bold;
+}
+
 @media screen and (max-height: 824px) {
   .logoGiratorio {
     bottom: 240px;
@@ -45,6 +51,20 @@ a {
   .mainContent_sandwich {
     width: 460px;
     height: 380px;
+  }
+
+  .mainContent_text {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: bold;
+  }
+}
+
+/* IPHONE X */
+@media screen and (max-height: 814px) {
+
+  .mainContent_text {
+    font-size: 25px;
   }
 }
 
@@ -58,12 +78,17 @@ a {
     width: 450px;
     height: 360px;
   }
+
 }
 
-@media screen and (max-height: 640px) {
+@media screen and (max-height: 668px) {
   .logoGiratorio {
     bottom: 170px;
     left: 30px;
+  }
+
+  .mainContent_text {
+    font-size: 22px;
   }
 }
 

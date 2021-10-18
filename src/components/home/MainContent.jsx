@@ -42,16 +42,13 @@ const Copy = () => {
   }
 
   return (
-    <Stack bg="red" w="full" h="full">
+    <Stack w="full" h="full" className="mainContent_text">
       <MotionStack
         roundedRight="200px"
         variants={container}
         initial="hidden"
         animate="show"
         p="5"
-        fontSize="22px"
-        lineHeight="1"
-        fontWeight="bold"
         bg="yellow.200"
       >
         <MotionText variants={item}>UN SANDWICH</MotionText>
