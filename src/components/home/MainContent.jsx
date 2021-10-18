@@ -42,7 +42,7 @@ const Copy = () => {
   }
 
   return (
-    <Stack>
+    <Stack bg="red" w="full" h="full">
       <MotionStack
         roundedRight="200px"
         variants={container}
@@ -66,11 +66,7 @@ const Copy = () => {
 const Sandwich = () => {
   return (
     <MotionFlex
-      w="400px"
-      h="320px"
-      position="absolute"
-      top="-10"
-      right="-300"
+      className="mainContent_sandwich"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, right: -200 }}
       transition={{ ease: [0.6, 0.01, -0.05, 0.95], duration: 1.4 }}
@@ -81,7 +77,3 @@ const Sandwich = () => {
 }
 
 export default MainContent
-
-const SandwichBackground = () => {
-  return <MotionFlex></MotionFlex>
-}
