@@ -1,57 +1,39 @@
 import TopNav from '../components/top'
-import Head from 'next/head'
 import HomeLayout from '../components/home'
 import { AnimatePresence, motion } from 'framer-motion'
 import LoadingScreen from '../components/loadingScreen'
 import useDelay from '../hooks/useDelay'
+import { BrowserView, MobileOnlyView } from 'react-device-detect'
+import DesktopHome from '../components/desktop/Home'
+import HomeHead from '../components/heads/HomeHead'
 
 export default function Home() {
   const loading = useDelay(2000)
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-        <title>{"THE BEST F$%&#ING SANDWICH IN TOWN! 💣| King's House"}</title>
-        <meta
-          name="description"
-          content="Cuidamos cada detalle, cada vegetal, caga gramo de harina en el pan para que nuestros clientes degusten un producto de calidad."
-        ></meta>
-        <meta name="keywords" content="Sandwich, San Ramón, Kings House"></meta>
-        <meta property="og:type" content="website"></meta>
-        <meta
-          property="og:title"
-          content="THE BEST F$%&#ING SANDWICH IN TOWN! 💣"
-        ></meta>
-        <meta
-          property="og:description"
-          content="Cuidamos cada detalle, cada vegetal, caga gramo de harina en el pan para que nuestros clientes degusten un producto de calidad."
-        ></meta>
-        <meta property="og:url" content="https://kingshousecr.com" />
-        <meta
-          property="og:image"
-          content="https://user-images.githubusercontent.com/71573508/137668838-c8539b28-aa0a-4f97-98a9-5fdc27baed1c.png"
-        ></meta>
-      </Head>
+      <HomeHead />
       <AnimatePresence exitBeforeEnter>
         {loading ? (
           <motion.div exit={{ opacity: 0 }} key="loading">
             <LoadingScreen />
           </motion.div>
         ) : (
-          <motion.div
-            key="homeLayout"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <TopNav />
-            <HomeLayout />
-          </motion.div>
+          <>
+            <MobileOnlyView>
+              <motion.div
+                key="homeLayout"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <TopNav />
+                <HomeLayout />
+              </motion.div>
+            </MobileOnlyView>
+            <BrowserView>
+              <DesktopHome />
+            </BrowserView>
+          </>
         )}
       </AnimatePresence>
     </>
