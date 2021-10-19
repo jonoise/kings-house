@@ -29,6 +29,10 @@ const HomeHead = () => {
         property="og:image"
         content="https://user-images.githubusercontent.com/71573508/137668838-c8539b28-aa0a-4f97-98a9-5fdc27baed1c.png"
       ></meta>
+      {/* TWITTER */}
+      <meta name="twitter:card" content="summary_large_image"></meta>
+      <meta name="twitter:site" content="https://kingshousecr.com"></meta>
+      <meta name="twitter:author" content="soloamilkar"></meta>
     </Head>
   )
 }
