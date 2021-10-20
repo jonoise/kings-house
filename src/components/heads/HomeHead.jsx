@@ -31,8 +31,7 @@ const HomeHead = () => {
       ></meta>
       {/* TWITTER */}
       <meta name="twitter:card" content="summary_large_image"></meta>
-      <meta name="twitter:site" content="https://kingshousecr.com"></meta>
-      <meta name="twitter:author" content="soloamilkar"></meta>
+      <meta name="twitter:author" content="@soloamilkar"></meta>
     </Head>
   )
 }
