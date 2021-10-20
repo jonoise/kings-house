@@ -1,3 +1,21 @@
-.categorySelected {
-  background-color: #ff304f !important;
+/* Width */
+.scrollBar::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.scrollBar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.scrollBar::-webkit-scrollbar-thumb {
+  background: #482ff7;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+.scrollBar::-webkit-scrollbar-thumb:hover {
+  background: #6f58ff;
 }

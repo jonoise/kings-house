@@ -14,7 +14,7 @@ const Categories = () => {
   }
 
   return (
-    <HStack spacing="5" bg={colors.white} p="5" rounded="lg">
+    <HStack spacing="5" bg={colors.mainLight} p="5" rounded="lg">
       {categories.map((category) => {
         return (
           <Flex

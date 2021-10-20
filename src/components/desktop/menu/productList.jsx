@@ -2,7 +2,7 @@ import { Flex, Stack, Text, VStack } from '@chakra-ui/layout'
 import { useEffect } from 'react'
 import { colors } from '../../../globals'
 import useProductsStore from '../../../stores/useProductsStore'
-
+import styles from './DesktopMenu.module.css'
 const ProductList = () => {
   const currentCategory = useProductsStore((state) => state.currentCategory)
   const categoryHash = useProductsStore((state) => state.categoriesHash)
@@ -16,6 +16,7 @@ const ProductList = () => {
   return (
     <>
       <VStack
+        className={styles.scrollBar}
         w="full"
         maxH="100%"
         overflowY="scroll"
