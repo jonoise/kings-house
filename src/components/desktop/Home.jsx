@@ -1,19 +1,28 @@
 import { Text, Flex, VStack, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { colors } from '../../globals'
 import KingTitle from '../home/KingTitle'
 import { FcTouchscreenSmartphone } from 'react-icons/fc'
-import { MotionStack } from '../motion/components'
+import { MotionFlex, MotionStack } from '../motion/components'
 
 const DesktopHome = () => {
   return (
-    <Flex w="full" h="100vh" bg={colors.main} justify="center" align="center">
+    <MotionFlex
+      exit="exit"
+      w="full"
+      h="100vh"
+      bg={colors.main}
+      justify="center"
+      align="center"
+    >
       <VStack color="white">
         <KingTitle title="King's House" />
         <Schedule />
+        <MenuButton />
         <DeviceOnly />
       </VStack>
-    </Flex>
+    </MotionFlex>
   )
 }
 
@@ -49,6 +58,23 @@ const Schedule = () => {
       <Text fontWeight="bold">Whatsapp</Text>
       <Text>☎ 8888-8888</Text>
     </MotionStack>
+  )
+}
+
+const MenuButton = () => {
+  return (
+    <Link href="/menu" passHref>
+      <Flex
+        cursor="pointer"
+        rounded="md"
+        py="2"
+        w="full"
+        justify="center"
+        bg="gray.900"
+      >
+        Menu
+      </Flex>
+    </Link>
   )
 }
 
