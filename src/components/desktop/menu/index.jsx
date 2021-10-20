@@ -4,6 +4,7 @@ import ResponsiveRow from '../../generics/ResponsiveRow'
 import CurrentImage from './currentImage'
 import Categories from './categories'
 import ProductList from './productList'
+import Navbar from '../../nav'
 
 const MenuInnerStack = (props) => {
   return (
@@ -16,10 +17,10 @@ const MenuInnerStack = (props) => {
 const DesktopMenu = () => {
   return (
     <>
-      <VStack w="full" h="100vh" bg={colors.dark} px="20">
-        <Flex w="full" h="60px"></Flex>
+      <VStack w="full" h="100vh" bg={colors.white} px="20">
+        <Navbar />
         <ResponsiveRow w="full" h="80%">
-          <MenuInnerStack mr="5">
+          <MenuInnerStack mr="5" pt="5">
             <Categories />
             <CurrentImage />
           </MenuInnerStack>
