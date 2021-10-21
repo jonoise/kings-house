@@ -21,7 +21,7 @@ const useProductsStore = create(
     setCurrentImage: (image) =>
       set((state) => ({
         ...state,
-        currentImage: `http://localhost:8000${image}`,
+        currentImage: image,
       })),
     setCategoriesHash: (categories) =>
       set((state) => {
