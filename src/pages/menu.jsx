@@ -36,7 +36,7 @@ const Menu = ({ categories }) => {
 
 export default Menu
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const res = await axios.get('products/categories')
   const categories = await res.data
 
