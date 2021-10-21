@@ -73,7 +73,8 @@ const SingleProduct = ({ product }) => {
           borderTopRightRadius="md"
           border="2px solid"
           borderBottom="none"
-          borderColor={colors.main}
+          borderLeft="none"
+          borderColor={colors.mainLight}
           justify="center"
         >
           <Text color={colors.main}>Precio</Text>
