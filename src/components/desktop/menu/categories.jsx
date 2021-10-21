@@ -26,15 +26,14 @@ const Categories = () => {
             px="4"
             rounded="full"
             key={category.id}
-            fontFamily="Barqish"
             color={
               category.slug === currentCategory
-                ? colors.white
-                : colors.secondary
+                ? colors.secondary
+                : colors.white
             }
             fontSize="28px"
-            bg={category.slug === currentCategory ? colors.main : '#e6e6e6'}
-            _hover={{ bg: colors.secondary, color: colors.white }}
+            bg={category.slug === currentCategory ? '#e6e6e6' : colors.main}
+            _hover={{ bg: colors.white, color: colors.secondary }}
             transition="0.4s all"
             onClick={() => handleChangeCategory(category.slug)}
           >
