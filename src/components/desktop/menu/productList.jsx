@@ -35,6 +35,7 @@ const ProductList = () => {
 const SingleProduct = ({ product }) => {
   const setCurrentImage = useProductsStore((state) => state.setCurrentImage)
   const handleMouseOver = () => {
+    setCurrentImage(null)
     setCurrentImage(product.image)
   }
 
