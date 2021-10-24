@@ -24,7 +24,7 @@ import useProductsStore from '../../../stores/useProductsStore'
 import BotNav from '../nav/BotNav'
 import AddToCart from '../buttons/AddToCart'
 import { colors } from '../../../globals'
-const ProductModal = () => {
+const ProductDrawer = () => {
   const firstField = useRef()
   const isOpen = useProductDrawer((state) => state.isOpen)
   const onClose = useProductDrawer((state) => state.onClose)
@@ -121,7 +121,7 @@ const ProductModal = () => {
   )
 }
 
-export default ProductModal
+export default ProductDrawer
 
 const ProductQuantityHandler = ({ quantity, setQuantity }) => {
   return (

@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/layout'
 import MenuBody from './body'
 import MenuCategories from './categories'
 import MenuHeader from './header'
-import ProductModal from './modals/ProductModal'
+import ProductDrawer from './drawers/ProductDrawer'
 import BotNav from './nav/BotNav'
 import TopNav from './nav/TopNav'
 
@@ -13,7 +13,7 @@ const MobileMenu = () => {
       <MenuHeader />
       <MenuCategories />
       <MenuBody />
-      <ProductModal />
+      <ProductDrawer />
       <BotNav />
     </Flex>
   )
