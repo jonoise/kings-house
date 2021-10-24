@@ -1,4 +1,5 @@
 import {
+  IconButton,
   Box,
   Drawer,
   DrawerBody,
@@ -13,25 +14,31 @@ import {
   Flex,
   Spinner,
   Badge,
+  HStack,
 } from '@chakra-ui/react'
+import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useEffect, useRef, useState } from 'react'
 import useProductDrawer from '../../../stores/useProductDrawer'
 import useProductsStore from '../../../stores/useProductsStore'
-import useFetch from '../../../hooks/useFetch'
+import BotNav from '../nav/BotNav'
+import AddToCart from '../buttons/AddToCart'
+import { colors } from '../../../globals'
 const ProductModal = () => {
-  // TODO: THIS COMPONENT HAS A SPINNER THAT NEEDS TO BE REFACTORED
+  const firstField = useRef()
   const isOpen = useProductDrawer((state) => state.isOpen)
   const onClose = useProductDrawer((state) => state.onClose)
-  const [res, makeGetRequest] = useFetch()
-  const firstField = useRef()
-
   const product = useProductsStore((state) => state.currentProduct)
-  const currentCategory = useProductsStore((state) => state.currentCategory)
+  const currentCategory = useProductsStore((state) => state.mobileCategory)
 
-  useEffect(() => {
-    product && makeGetRequest(`products/${product.id}`)
-  }, [makeGetRequest, product])
+  // ADD TO CART STRUCTURE
+  const [quantity, setQuantity] = useState(1)
+  const [description, setDescription] = useState('')
+
+  const handleCloseProductDrawer = () => {
+    setQuantity(1)
+    onClose()
+  }
 
   return (
     <>
@@ -42,11 +49,14 @@ const ProductModal = () => {
         size="full"
       >
         <DrawerOverlay />
-        {product && !res.loading ? (
-          <DrawerContent bg={styles.dimWhite} color="black">
+        {product ? (
+          <DrawerContent bg={colors.white} color="black">
             <DrawerHeader borderBottomWidth="1px" borderColor="black">
               <Flex w="full" align="center">
-                <Button leftIcon={<FaArrowLeft />} onClick={onClose}>
+                <Button
+                  leftIcon={<FaArrowLeft />}
+                  onClick={handleCloseProductDrawer}
+                >
                   <Text>{currentCategory}</Text>
                 </Button>
               </Flex>
@@ -64,7 +74,7 @@ const ProductModal = () => {
                   </Flex>
                 </VStack>
                 <Stack fontSize="16px" px="2">
-                  <Text color={styles.black} fontSize="30px" fontWeight="bold">
+                  <Text color={colors.dark} fontSize="30px" fontWeight="bold">
                     {product.name}
                   </Text>
                   <Box>
@@ -75,6 +85,18 @@ const ProductModal = () => {
                   <Text fontSize="16px" color="#505050">
                     {product.description}
                   </Text>
+                  <ProductQuantityHandler
+                    quantity={quantity}
+                    setQuantity={setQuantity}
+                  />
+                  <BotNav>
+                    <AddToCart
+                      description={description}
+                      setDescription={setDescription}
+                      quantity={quantity}
+                      setQuantity={setQuantity}
+                    />
+                  </BotNav>
                 </Stack>
               </Stack>
             </DrawerBody>
@@ -101,12 +123,31 @@ const ProductModal = () => {
 
 export default ProductModal
 
-const styles = {
-  yellow: '#f5c000',
-  blue: '#5267f6',
-  green: '#6afdef',
-  purple: '#8d2ef0',
-  red: '#ec7965',
-  black: '#1a1a1a',
-  dimWhite: '#f2f2f2',
+const ProductQuantityHandler = ({ quantity, setQuantity }) => {
+  return (
+    <HStack justify="center" borderTop="1px solid #b8b8b8" pt="2" pb="4rem">
+      <IconButton
+        colorScheme="blue"
+        size="lg"
+        rounded="full"
+        icon={<MinusIcon />}
+        m="0"
+        p="0"
+        disabled={quantity <= 1 ? true : false}
+        variant="outline"
+        onClick={() => setQuantity((prev) => prev - 1)}
+      />
+      <Text fontSize="2rem">{quantity}</Text>
+      <IconButton
+        colorScheme="blue"
+        size="lg"
+        rounded="full"
+        icon={<AddIcon />}
+        m="0"
+        p="0"
+        variant="outline"
+        onClick={() => setQuantity((prev) => prev + 1)}
+      />
+    </HStack>
+  )
 }
