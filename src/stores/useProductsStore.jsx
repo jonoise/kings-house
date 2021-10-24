@@ -6,7 +6,9 @@ const useProductsStore = create(
     categories: null,
     categoriesHash: null,
     products: null,
+    currentProduct: null,
     currentCategory: 'subs',
+    mobileCategory: null,
     currentImage: null,
     setCategories: (categories) =>
       set((state) => ({
@@ -17,6 +19,16 @@ const useProductsStore = create(
       set((state) => ({
         ...state,
         currentCategory: category,
+      })),
+    setMobileCategory: (category) =>
+      set((state) => ({
+        ...state,
+        mobileCategory: category,
+      })),
+    setCurrentProduct: (product) =>
+      set((state) => ({
+        ...state,
+        currentProduct: product,
       })),
     setCurrentImage: (image) =>
       set((state) => ({
