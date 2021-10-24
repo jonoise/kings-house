@@ -1,6 +1,6 @@
 import { Flex, Text, HStack, IconButton, Center } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
-import CartModal from '../modals/CartModal'
+import CartModal from '../drawers/CartDrawer'
 
 const TopNav = () => {
   return (
