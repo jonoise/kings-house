@@ -57,8 +57,9 @@ const SingleProduct = ({ product }) => {
           </Flex>
         </Flex>
         <Flex justify="right" align="end">
-          <Box></Box>
-          <Badge variant="solid" colorScheme="green"></Badge>
+          <Badge variant="solid" colorScheme="green">
+            ₡{product.price}
+          </Badge>
         </Flex>
       </Flex>
     </Flex>
