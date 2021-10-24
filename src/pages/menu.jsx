@@ -3,6 +3,7 @@ import { BrowserView, MobileOnlyView } from 'react-device-detect'
 import DesktopMenu from '../components/desktop/menu'
 import HomeHead from '../components/heads/HomeHead'
 import LoadingScreen from '../components/loadingScreen'
+import MobileMenu from '../components/menu'
 import axios from '../lib/http'
 import useProductsStore from '../stores/useProductsStore'
 
@@ -27,7 +28,9 @@ const Menu = ({ categories }) => {
           <BrowserView>
             <DesktopMenu />
           </BrowserView>
-          <MobileOnlyView></MobileOnlyView>
+          <MobileOnlyView>
+            <MobileMenu />
+          </MobileOnlyView>
         </>
       )}
     </div>
