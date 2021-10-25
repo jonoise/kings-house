@@ -6,6 +6,7 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
+  DrawerFooter,
   VStack,
   Stack,
   Button,
@@ -89,17 +90,17 @@ const ProductDrawer = () => {
                     quantity={quantity}
                     setQuantity={setQuantity}
                   />
-                  <BotNav>
-                    <AddToCart
-                      description={description}
-                      setDescription={setDescription}
-                      quantity={quantity}
-                      setQuantity={setQuantity}
-                    />
-                  </BotNav>
                 </Stack>
               </Stack>
             </DrawerBody>
+            <DrawerFooter>
+              <AddToCart
+                description={description}
+                setDescription={setDescription}
+                quantity={quantity}
+                setQuantity={setQuantity}
+              />
+            </DrawerFooter>
           </DrawerContent>
         ) : (
           <DrawerContent>
