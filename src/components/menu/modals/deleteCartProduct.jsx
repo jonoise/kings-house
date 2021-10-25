@@ -63,6 +63,6 @@ export default DeleteCartProduct
 
 const verboseCategory = {
   1: 'el sub',
-  2: 'la bebida',
-  3: 'las papitas',
+  2: 'las papitas',
+  3: 'la bebida',
 }
