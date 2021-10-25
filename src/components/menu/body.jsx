@@ -5,7 +5,7 @@ import CategoryItems from './products/CategoryItems'
 const MenuBody = () => {
   const category = useProductsStore((state) => state.mobileCategory)
   return (
-    <Stack minH="100vh" w="full" bg="white">
+    <Stack minH="60vh" w="full" bg="white" pb="4rem">
       {category ? (
         // Desplegar items.
         <CategoryItems category={category} />
