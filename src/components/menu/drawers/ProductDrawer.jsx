@@ -91,12 +91,14 @@ const ProductDrawer = () => {
                     setQuantity={setQuantity}
                   />
                 </Stack>
-                <AddToCart
-                  description={description}
-                  setDescription={setDescription}
-                  quantity={quantity}
-                  setQuantity={setQuantity}
-                />
+                <Flex w="full" pb="4rem">
+                  <AddToCart
+                    description={description}
+                    setDescription={setDescription}
+                    quantity={quantity}
+                    setQuantity={setQuantity}
+                  />
+                </Flex>
               </Stack>
             </DrawerBody>
           </DrawerContent>
