@@ -24,7 +24,7 @@ const SingleProduct = ({ product }) => {
     >
       <Flex w="30%" minH="5rem" maxH="5rem">
         <Image
-          src={`http://localhost:8000` + product.image}
+          src={product.image}
           roundedLeft="md"
           w="100%"
           h="100%"

@@ -81,7 +81,7 @@ const CartModal = () => {
                 >
                   <Flex w="30%" minH="5rem" maxH="5rem">
                     <Image
-                      src={`http://localhost:8000` + cartProduct.image}
+                      src={cartProduct.image}
                       roundedLeft="md"
                       w="100%"
                       h="100%"

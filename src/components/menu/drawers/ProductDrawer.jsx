@@ -66,7 +66,7 @@ const ProductDrawer = () => {
                 <VStack spacing="1" bg="red">
                   <Flex w="full" maxH="300px">
                     <Image
-                      src={`http://localhost:8000` + product.image}
+                      src={product.image}
                       w="100%"
                       objectFit="cover"
                       alt="Imagen del producto."
