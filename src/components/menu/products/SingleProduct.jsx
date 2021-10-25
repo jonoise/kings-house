@@ -49,7 +49,7 @@ const SingleProduct = ({ product }) => {
               {product.name}
             </Text>
             <Text fontSize="10px" color="black">
-              {sliceText(product.description, 90)}
+              {sliceText(product.description, 35)}
             </Text>
           </Box>
           <Flex p="2px" rounded="full" border="1px solid black">

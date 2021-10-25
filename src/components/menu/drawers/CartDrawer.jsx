@@ -70,105 +70,126 @@ const CartModal = () => {
             {cartProducts.length < 1 && <EmptyCart onClose={onClose} />}
             <Stack>
               {cartProducts.map((cartProduct) => (
-                <Flex
-                  key={cartProduct.code}
-                  w="full"
-                  h="full"
-                  bg="#fefef3"
-                  p="2"
-                  rounded="md"
-                  shadow="lg"
-                >
-                  <Flex w="30%" minH="5rem" maxH="5rem">
-                    <Image
-                      src={cartProduct.image}
-                      roundedLeft="md"
-                      w="100%"
-                      h="100%"
-                      objectFit="cover"
-                      alt="Product image"
-                    />
-                  </Flex>
+                <>
                   <Flex
-                    direction="column"
-                    minH="full"
+                    key={cartProduct.code}
                     w="full"
-                    justify="space-between"
-                    roundedRight="md"
-                    bg="fefef3"
+                    h="full"
+                    bg="#fefef3"
                     p="2"
-                    border="1px solid #ffc1c1"
-                    borderLeft="none"
+                    rounded="md"
+                    shadow="lg"
                   >
-                    <Flex justify="space-between" align="start">
-                      <Box>
-                        <Text
-                          fontSize="16px"
-                          fontWeight="semibold"
-                          color="black"
-                        >
-                          {cartProduct.name}
-                        </Text>
-                      </Box>
-                      <HStack p="2px">
-                        <IconButton
-                          bg={colors.main}
-                          color={colors.white}
-                          size="xs"
-                          rounded="full"
-                          icon={<EditIcon />}
-                          m="0"
-                          p="0"
-                        />
-                        <IconButton
-                          bg={colors.secondary}
-                          color={colors.white}
-                          size="xs"
-                          rounded="full"
-                          icon={<DeleteIcon />}
-                          m="0"
-                          p="0"
-                          onClick={() => removeFromCart(cartProduct.code)}
-                        />
-                      </HStack>
+                    <Flex w="30%" minH="5rem" maxH="5rem">
+                      <Image
+                        src={cartProduct.image}
+                        roundedLeft="md"
+                        w="100%"
+                        h="100%"
+                        objectFit="cover"
+                        alt="Product image"
+                      />
                     </Flex>
-                    <Flex justify="space-between" align="end">
-                      <Badge variant="solid" colorScheme="green">
-                        ₡{cartProduct.price * cartProduct.quantity}
-                      </Badge>
-                      <HStack>
-                        <Text fontSize="14px" color="black">
-                          Cantidad: {cartProduct.quantity}
-                        </Text>
-                        <IconButton
-                          size="xs"
-                          rounded="full"
-                          icon={<MinusIcon />}
-                          m="0"
-                          p="0"
-                          disabled={cartProduct.quantity <= 1 ? true : false}
-                          onClick={() =>
-                            decreaseProductQuantity(cartProduct.code)
-                          }
-                        />
-                        <IconButton
-                          size="xs"
-                          rounded="full"
-                          icon={<AddIcon />}
-                          m="0"
-                          p="0"
-                          onClick={() =>
-                            increaseProductQuantity(cartProduct.code)
-                          }
-                        />
-                      </HStack>
+                    <Flex
+                      direction="column"
+                      minH="full"
+                      w="full"
+                      justify="space-between"
+                      roundedRight="md"
+                      bg="fefef3"
+                      p="2"
+                      border="1px solid #ffc1c1"
+                      borderLeft="none"
+                    >
+                      <Flex justify="space-between" align="start">
+                        <Box>
+                          <Text
+                            fontSize="16px"
+                            fontWeight="semibold"
+                            color="black"
+                          >
+                            {cartProduct.name}
+                          </Text>
+                        </Box>
+                        <HStack p="2px">
+                          <IconButton
+                            bg={colors.main}
+                            color={colors.white}
+                            size="xs"
+                            rounded="full"
+                            icon={<EditIcon />}
+                            m="0"
+                            p="0"
+                          />
+                          <IconButton
+                            bg={colors.secondary}
+                            color={colors.white}
+                            size="xs"
+                            rounded="full"
+                            icon={<DeleteIcon />}
+                            m="0"
+                            p="0"
+                            onClick={() => removeFromCart(cartProduct.code)}
+                          />
+                        </HStack>
+                      </Flex>
+                      <Flex justify="space-between" align="end">
+                        <Badge variant="solid" colorScheme="green">
+                          ₡{cartProduct.price * cartProduct.quantity}
+                        </Badge>
+                        <HStack>
+                          <Text fontSize="14px" color="black">
+                            Cantidad: {cartProduct.quantity}
+                          </Text>
+                          <IconButton
+                            size="xs"
+                            rounded="full"
+                            icon={<MinusIcon />}
+                            m="0"
+                            p="0"
+                            disabled={cartProduct.quantity <= 1 ? true : false}
+                            onClick={() =>
+                              decreaseProductQuantity(cartProduct.code)
+                            }
+                          />
+                          <IconButton
+                            size="xs"
+                            rounded="full"
+                            icon={<AddIcon />}
+                            m="0"
+                            p="0"
+                            onClick={() =>
+                              increaseProductQuantity(cartProduct.code)
+                            }
+                          />
+                        </HStack>
+                      </Flex>
                     </Flex>
                   </Flex>
-                </Flex>
+                </>
               ))}
             </Stack>
           </DrawerBody>
-          <BotNav>Total {totalAmount} + express</BotNav>
+          <DrawerFooter w="full" justifyContent="start">
+            <HStack
+              w="full"
+              justify="space-between"
+              align="center"
+              pb="4rem"
+              pt="2rem"
+            >
+              <HStack>
+                <Badge fontSize="md" colorScheme="green">
+                  Total {totalAmount}
+                </Badge>
+                <Text>+</Text>
+                <Badge colorScheme="orange" fontSize="13px">
+                  express
+                </Badge>
+              </HStack>
+              <Text>Pagar con sinpe</Text>
+            </HStack>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>
@@ -190,6 +211,9 @@ const NotificationBadge = (props) => (
     w="17px"
     h="17px"
     zIndex="2"
+    mt="0"
+    m="0"
+    p="0"
     {...props}
   />
 )

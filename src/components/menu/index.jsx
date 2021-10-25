@@ -3,7 +3,6 @@ import MenuBody from './body'
 import MenuCategories from './categories'
 import MenuHeader from './header'
 import ProductDrawer from './drawers/ProductDrawer'
-import BotNav from './nav/BotNav'
 import TopNav from './nav/TopNav'
 
 const MobileMenu = () => {
@@ -14,7 +13,6 @@ const MobileMenu = () => {
       <MenuCategories />
       <MenuBody />
       <ProductDrawer />
-      <BotNav />
     </Flex>
   )
 }
