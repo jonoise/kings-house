@@ -6,7 +6,6 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerFooter,
   VStack,
   Stack,
   Button,
@@ -19,10 +18,9 @@ import {
 } from '@chakra-ui/react'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { FaArrowLeft } from 'react-icons/fa'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import useProductDrawer from '../../../stores/useProductDrawer'
 import useProductsStore from '../../../stores/useProductsStore'
-import BotNav from '../nav/BotNav'
 import AddToCart from '../buttons/AddToCart'
 import { colors } from '../../../globals'
 const ProductDrawer = () => {
@@ -91,7 +89,7 @@ const ProductDrawer = () => {
                     setQuantity={setQuantity}
                   />
                 </Stack>
-                <Flex w="full" pb="4rem">
+                <Flex w="full" pb="4rem" px="2">
                   <AddToCart
                     description={description}
                     setDescription={setDescription}

@@ -1,6 +1,5 @@
-import { AddIcon, DeleteIcon, EditIcon, MinusIcon } from '@chakra-ui/icons'
+import { AddIcon, EditIcon, MinusIcon } from '@chakra-ui/icons'
 import {
-  Heading,
   HStack,
   Drawer,
   DrawerBody,
@@ -8,7 +7,6 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   Image,
   Box,
   Icon,
@@ -22,19 +20,18 @@ import {
   VStack,
   Stack,
 } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { BiCart } from 'react-icons/bi'
 import { FaArrowLeft } from 'react-icons/fa'
 import { colors } from '../../../globals'
 import { calculateOrderAmount } from '../../../lib/calculateOrderAmount'
 import useCartStore from '../../../stores/useCartStore'
-import BotNav from '../nav/BotNav'
-const CartModal = () => {
+import DeleteCartProduct from '../modals/deleteCartProduct'
+const CartDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cartProducts = useCartStore((state) => state.products)
   const setTotalAmount = useCartStore((state) => state.setTotalAmount)
   const totalAmount = useCartStore((state) => state.totalAmount)
-  const removeFromCart = useCartStore((state) => state.removeFromCart)
   const increaseProductQuantity = useCartStore(
     (state) => state.increaseProductQuantity
   )
@@ -46,8 +43,6 @@ const CartModal = () => {
     const calcOrderAmount = calculateOrderAmount(cartProducts)
     setTotalAmount(calcOrderAmount)
   }, [cartProducts, setTotalAmount])
-
-  const handleDeleteCartProduct = () => {}
 
   return (
     <>
@@ -121,16 +116,7 @@ const CartModal = () => {
                             m="0"
                             p="0"
                           />
-                          <IconButton
-                            bg={colors.secondary}
-                            color={colors.white}
-                            size="xs"
-                            rounded="full"
-                            icon={<DeleteIcon />}
-                            m="0"
-                            p="0"
-                            onClick={() => removeFromCart(cartProduct.code)}
-                          />
+                          <DeleteCartProduct product={cartProduct} />
                         </HStack>
                       </Flex>
                       <Flex justify="space-between" align="end">
@@ -170,8 +156,8 @@ const CartModal = () => {
               ))}
             </Stack>
           </DrawerBody>
-          <DrawerFooter w="full" justifyContent="start">
-            <HStack
+          <DrawerFooter w="full" justifyContent="start" borderTopWidth="1px">
+            <VStack
               w="full"
               justify="space-between"
               align="center"
@@ -179,16 +165,22 @@ const CartModal = () => {
               pt="2rem"
             >
               <HStack>
-                <Badge fontSize="md" colorScheme="green">
-                  Total {totalAmount}
-                </Badge>
+                <Badge colorScheme="green">Total {totalAmount}</Badge>
                 <Text>+</Text>
-                <Badge colorScheme="orange" fontSize="13px">
-                  express
-                </Badge>
+                <Badge colorScheme="orange">express</Badge>
               </HStack>
-              <Text>Pagar con sinpe</Text>
-            </HStack>
+              <Flex
+                px="4"
+                py="2"
+                justify="center"
+                w="full"
+                bg={colors.main}
+                color={colors.white}
+                rounded="md"
+              >
+                <Text>Pagar con sinpe</Text>
+              </Flex>
+            </VStack>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
@@ -196,7 +188,7 @@ const CartModal = () => {
   )
 }
 
-export default CartModal
+export default CartDrawer
 
 const NotificationBadge = (props) => (
   <Center
