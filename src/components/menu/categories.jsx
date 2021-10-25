@@ -1,5 +1,6 @@
 import useProductsStore from '../../stores/useProductsStore'
-import { Flex, Text, HStack, Image } from '@chakra-ui/react'
+import { Flex, Text, HStack } from '@chakra-ui/react'
+import Image from 'next/image'
 import SwiperCore, { Navigation, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { MotionVStack } from '../motion/components'
@@ -39,8 +40,9 @@ const MenuCategories = () => {
                   >
                     <Image
                       src={`/images/categories/${category.slug}.png`}
-                      w="30px"
-                      alt="photg"
+                      width="30px"
+                      height="30px"
+                      alt={`Categoría ${category.slug}`}
                     />
                     <Text fontWeight="semibold">{category.name}</Text>
                   </Flex>
