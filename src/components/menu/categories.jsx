@@ -17,7 +17,7 @@ const MenuCategories = () => {
   return (
     <MotionVStack my="5">
       <Text textAlign="center" fontSize="14px" fontWeight="semibold">
-        🠔 desliza para más 🠖
+        ← desliza para más →
       </Text>
       <Flex p="2" w="full">
         <Swiper

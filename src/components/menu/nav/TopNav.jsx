@@ -10,11 +10,11 @@ const TopNav = () => {
       bg="#f2f2f2"
       zIndex="9"
       minH="10px"
-      maxH="4rem"
+      maxH="3rem"
       w="full"
       p="2"
       justify="space-between"
-      align="center"
+      align="flex-start"
       borderBottom="2px solid #d0d0d0"
     >
       <Text fontSize="18px" fontWeight="semibold" as="a" href="/">
