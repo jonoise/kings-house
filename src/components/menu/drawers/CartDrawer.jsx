@@ -47,7 +47,7 @@ const CartDrawer = () => {
   return (
     <>
       {/* OPENS MODAL */}
-      <TableButton mt={4} onClick={onOpen} />
+      <CartButton mt={4} onClick={onOpen} />
 
       {/* MODAL */}
 
@@ -203,24 +203,20 @@ const NotificationBadge = (props) => (
     w="17px"
     h="17px"
     zIndex="2"
-    mt="0"
-    m="0"
-    p="0"
     {...props}
   />
 )
 
-const TableButton = (props) => {
+const CartButton = (props) => {
   const products = useCartStore((state) => state.products)
 
   return (
     <Flex
+      position="relative"
       outline="0"
       mt="0"
+      bg="red"
       m="0"
-      w="8"
-      h="8"
-      position="relative"
       rounded="md"
       _hover={{ bg: 'whiteAlpha.200' }}
       _focus={{ shadow: 'outline' }}
